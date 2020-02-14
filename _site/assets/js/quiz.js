@@ -28,6 +28,20 @@ $(':input[type="number"]').on("input", function() {
   input(this);
 });
 
+$(':input[type="number"]').on("focusin", function() {
+  if($(this).val() == 0) {
+        $(this).val(null);
+        input(this);
+    }
+});
+
+$(':input[type="number"]').on("focusout", function() {
+  if($(this).val() == "") {
+        $(this).val(0);
+        input(this);
+    }
+});
+
 function input(element) {
   var x = true;
   $('.active :input[type="number"]').each(function( index ) {
